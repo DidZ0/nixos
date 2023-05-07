@@ -39,19 +39,11 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     chromium
-    neovim
-    git
-    nodejs
-    vscode
-    st
     rofi
-    logseq
+    st
     nitrogen
     networkmanagerapplet
     networkmanager-openvpn
-    signal-desktop
-    pulsemixer
-    flameshot
   ];
 
   services.xserver = {
