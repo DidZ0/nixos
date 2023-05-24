@@ -11,12 +11,16 @@
   home.username = "bomal";
   home.homeDirectory = "/home/bomal";
   home.packages = with pkgs; [
+    neovim
     vscode
     logseq
     signal-desktop
     nodejs
     pulsemixer
     flameshot
+    chromium
+    rofi
+    dmenu
   ];
 
   programs.home-manager.enable = true;
