@@ -17,6 +17,7 @@
 
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = [ "FiraCode" ]; }) 
+    alacritty
     nnn
     vscode
     logseq
