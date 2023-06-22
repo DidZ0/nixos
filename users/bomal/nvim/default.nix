@@ -14,9 +14,14 @@
       telescope-file-browser-nvim
       which-key-nvim
       nvim-web-devicons
-      nvim-lspconfig
       nvim-treesitter.withAllGrammars
       copilot-vim
+      lsp-zero-nvim
+      nvim-lspconfig
+      nvim-cmp
+      cmp-nvim-lsp
+      luasnip 
+      flutter-tools-nvim
     ];
   };
 

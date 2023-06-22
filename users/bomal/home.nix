@@ -29,6 +29,7 @@
     rofi
     dmenu
     onlyoffice-bin
+    postman
   ];
 
   home.sessionVariables = {
