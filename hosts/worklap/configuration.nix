@@ -12,6 +12,12 @@
   networking.hostName = "worklap";
   networking.networkmanager.enable = true;
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+
   services.gnome.gnome-keyring.enable = true;
 
   time.timeZone = "Europe/Paris";
@@ -44,7 +50,18 @@
     nitrogen
     networkmanagerapplet
     networkmanager-openvpn
+    tailscale
   ];
+
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    roboto
+    arkpandora_ttf
+    liberation_ttf
+  ];
+
+  # enable the tailscale service
+  services.tailscale.enable = true;
 
   services.xserver = {
     enable = true;
@@ -66,6 +83,9 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport32Bit = true;
 
   virtualisation.docker.enable = true;
 

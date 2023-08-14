@@ -51,6 +51,7 @@
     nitrogen
     networkmanagerapplet
     networkmanager-openvpn
+    netbird-ui
   ];
 
   services.xserver = {
@@ -61,6 +62,8 @@
     displayManager.defaultSession = "none+qtile";
     windowManager.qtile.enable = true;
   };
+
+  services.netbird.enable = true; # for netbird service & CLI
 
   security.rtkit.enable = true;
   services.pipewire = {

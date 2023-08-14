@@ -28,8 +28,8 @@
     chromium
     rofi
     dmenu
-    onlyoffice-bin
     postman
+    steam
   ];
 
   home.sessionVariables = {
