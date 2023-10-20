@@ -1,8 +1,8 @@
 { inputs, lib, config, pkgs, ... }: {
 
-  imports = [
-    ./nvim
-  ];
+  #imports = [
+  #  ./nvim
+  #];
 
   nixpkgs = {
     overlays = [];
@@ -20,6 +20,10 @@
     alacritty
     nnn
     vscode
+    taskwarrior
+    tasksh
+    tasknc
+    taskell
     logseq
     signal-desktop
     nodejs
@@ -30,6 +34,9 @@
     dmenu
     postman
     steam
+    fd
+    zk
+    anytype
   ];
 
   home.sessionVariables = {

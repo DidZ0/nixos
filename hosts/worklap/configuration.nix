@@ -20,6 +20,15 @@
 
   services.gnome.gnome-keyring.enable = true;
 
+  services = {
+    syncthing = {
+        enable = true;
+        user = "bomal";
+        dataDir = "/home/myusername/Documents/sync";    # Default folder for new synced folders
+        configDir = "/home/myusername/Documents/sync/.config/syncthing";   # Folder for Syncthing's settings and keys
+    };
+};
+
   time.timeZone = "Europe/Paris";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
@@ -51,9 +60,13 @@
     networkmanagerapplet
     networkmanager-openvpn
     tailscale
+    ripgrep
+    fd
+    gcc
   ];
 
   fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
     noto-fonts
     roboto
     arkpandora_ttf
@@ -68,6 +81,7 @@
     layout = "us";
     xkbVariant = "colemak";
     windowManager.qtile.enable = true;
+    windowManager.dwm.enable = true;
     desktopManager.xterm.enable = false;
     displayManager.lightdm.enable = true;
     displayManager.defaultSession = "none+qtile";
@@ -86,6 +100,8 @@
 
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   virtualisation.docker.enable = true;
 

@@ -22,6 +22,7 @@
       cmp-nvim-lsp
       luasnip 
       flutter-tools-nvim
+      zk-nvim
     ];
   };
 
