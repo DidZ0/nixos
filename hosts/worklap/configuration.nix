@@ -7,27 +7,15 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  virtualisation.libvirtd.enable = true;
+  virtualisation.docker.enable = true;
+  programs.dconf.enable = true;
 
   networking.hostName = "worklap";
   networking.networkmanager.enable = true;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-
   services.gnome.gnome-keyring.enable = true;
-
-  services = {
-    syncthing = {
-        enable = true;
-        user = "bomal";
-        dataDir = "/home/myusername/Documents/sync";    # Default folder for new synced folders
-        configDir = "/home/myusername/Documents/sync/.config/syncthing";   # Folder for Syncthing's settings and keys
-    };
-};
 
   time.timeZone = "Europe/Paris";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -43,26 +31,21 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
+  services.printing.enable = true;
 
   users.users.bomal = {
     isNormalUser = true;
     description = "Yan IMENSAR";
-    extraGroups = [ "networkmanager" "wheel" "video"];
+    extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" ];
     packages = with pkgs; [];
   };
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     chromium
-    rofi
-    st
-    nitrogen
     networkmanagerapplet
     networkmanager-openvpn
-    tailscale
-    ripgrep
-    fd
-    gcc
+    virt-manager
   ];
 
   fonts.fonts = with pkgs; [
@@ -80,16 +63,15 @@
     enable = true;
     layout = "us";
     xkbVariant = "colemak";
-    windowManager.qtile.enable = true;
-    windowManager.dwm.enable = true;
-    desktopManager.xterm.enable = false;
-    displayManager.lightdm.enable = true;
-    displayManager.defaultSession = "none+qtile";
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
     libinput.enable = true;
   };
 
   programs.light.enable = true;
 
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -102,8 +84,6 @@
   hardware.opengl.driSupport32Bit = true;
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-
-  virtualisation.docker.enable = true;
 
   system.stateVersion = "22.11";
 }

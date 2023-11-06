@@ -1,9 +1,5 @@
 { inputs, lib, config, pkgs, ... }: {
 
-  #imports = [
-  #  ./nvim
-  #];
-
   nixpkgs = {
     overlays = [];
     config = {
@@ -17,26 +13,11 @@
 
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = [ "FiraCode" ]; }) 
-    alacritty
-    nnn
     vscode
-    taskwarrior
-    tasksh
-    tasknc
-    taskell
+    neovim
     logseq
     signal-desktop
     nodejs
-    pulsemixer
-    flameshot
-    chromium
-    rofi
-    dmenu
-    postman
-    steam
-    fd
-    zk
-    anytype
   ];
 
   home.sessionVariables = {

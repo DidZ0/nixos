@@ -1,12 +1,14 @@
 # NixOS
 
 ## Initial setup
-´´´sudo nixos-rebuild switch --flake .´´´
-´´´nix run .#homeConfigurations.bomal.activationPackage´´´
-Then home-manager is available
+```sudo nixos-rebuild switch --flake .```
+```nix-shell -p home-manager```
+```home-manager switch --flake .```
 
 ## Usage
 
-´´´sudo nixos-rebuild switch --flake .´´´
-´´´home-manager switch --flake .´´´
+### update system wide
+```nixoswitch```
+###
+```switch```
 
