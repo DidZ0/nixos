@@ -35,20 +35,45 @@
 
   users.users.bomal = {
     isNormalUser = true;
+    shell = pkgs.fish;
     description = "Yan IMENSAR";
-    extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "libvirtd" "docker" ];
     packages = with pkgs; [];
   };
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+    brave
     chromium
+    vivaldi
     networkmanagerapplet
     networkmanager-openvpn
     virt-manager
+    virtiofsd
+    docker-compose
+    fishPlugins.done
+    fishPlugins.fzf-fish
+    fishPlugins.grc
+    fishPlugins.forgit
+    fishPlugins.hydro
+    fzf
+    grc
+    ripgrep
+    gcc
+    gnumake
+    zip
+    unzip
+    xclip
+    deno
   ];
 
-  fonts.fonts = with pkgs; [
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk11;
+  };
+  programs.fish.enable = true;
+
+  fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     noto-fonts
     roboto
@@ -64,8 +89,11 @@
     layout = "us";
     xkbVariant = "colemak";
     displayManager.gdm.enable = true;
+    windowManager.qtile.enable = true;
+    displayManager = {
+        defaultSession = "none+qtile";
+    };
     desktopManager.gnome.enable = true;
-    libinput.enable = true;
   };
 
   programs.light.enable = true;

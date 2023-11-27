@@ -11,13 +11,27 @@
   home.username = "bomal";
   home.homeDirectory = "/home/bomal";
 
+  programs.fish = {
+     enable = true; 
+     interactiveShellInit = ''
+       set fish_greeting # Disable greeting
+     '';
+     shellAliases = {
+       switchusers = "home-manager switch --flake $HOME/.config/nixos";
+       switchhosts = "sudo nixos-rebuild switch --flake $HOME/.config/nixos";
+     };
+  };
+
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = [ "FiraCode" ]; }) 
-    vscode
-    neovim
+    kitty
     logseq
     signal-desktop
     nodejs
+    authenticator
+    rofi
+    flameshot
+    nnn
+    neovim
   ];
 
   home.sessionVariables = {
@@ -35,10 +49,19 @@
   ];
 
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    userName  = "Yan IMENSAR";
+    userEmail = "yimensar@4cad.fr";
+  };
+  programs.vscode= {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+    	github.copilot
+    ];
+  };
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
-  programs.bash.enable = true;
   programs.bash.shellAliases = {
     switch = "home-manager switch --flake $HOME/.config/nixos";
     nixoswitch = "sudo nixos-rebuild switch --flake $HOME/.config/nixos";
