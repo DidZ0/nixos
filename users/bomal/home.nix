@@ -25,6 +25,7 @@
   home.packages = with pkgs; [
     kitty
     logseq
+    obsidian
     signal-desktop
     nodejs
     authenticator
@@ -32,6 +33,7 @@
     flameshot
     nnn
     neovim
+    anytype
   ];
 
   home.sessionVariables = {
