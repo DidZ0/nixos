@@ -8,32 +8,14 @@
     };
   };
 
+  programs.home-manager.enable = true;
   home.username = "bomal";
   home.homeDirectory = "/home/bomal";
 
-  programs.fish = {
-     enable = true; 
-     interactiveShellInit = ''
-       set fish_greeting # Disable greeting
-     '';
-     shellAliases = {
-       switchusers = "home-manager switch --flake $HOME/.config/nixos";
-       switchhosts = "sudo nixos-rebuild switch --flake $HOME/.config/nixos";
-     };
-  };
-
   home.packages = with pkgs; [
-    kitty
-    logseq
-    obsidian
     signal-desktop
-    nodejs
-    authenticator
-    rofi
     flameshot
-    nnn
     neovim
-    anytype
   ];
 
   home.sessionVariables = {
@@ -43,14 +25,10 @@
     DIFFPROG = "nvim -d";
     MANPAGER = "nvim +Man!";
     MANWIDTH = "999";
-    BROWSER = "chromium";
+    BROWSER = "firefox";
   };
 
-  home.sessionPath = [
-    "$HOME/.npm-global/bin"
-  ];
 
-  programs.home-manager.enable = true;
   programs.git = {
     enable = true;
     userName  = "Yan IMENSAR";
@@ -62,6 +40,7 @@
     	github.copilot
     ];
   };
+
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.bash.shellAliases = {

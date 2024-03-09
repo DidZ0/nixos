@@ -4,13 +4,20 @@
   imports = [ ./hardware-configuration.nix ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.extraOptions = ''
+    keep-outputs = true
+    keep-derivations = true
+  '';
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  programs.dconf.enable = true;
-
-  networking.hostName = "nixlap";
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport32Bit = true;
+  
+  networking.hostName = "lab";
   networking.networkmanager.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
@@ -29,37 +36,35 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  services.printing.enable = true;
 
   users.users.bomal = {
     isNormalUser = true;
     description = "Yan IMENSAR";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "video"];
     packages = with pkgs; [];
   };
 
-  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    firefox
-  ];
-
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    noto-fonts
-    roboto
-    arkpandora_ttf
-    liberation_ttf
+    rofi
+    st
+    alacritty
+    nitrogen
+    networkmanagerapplet
+    networkmanager-openvpn
+    netbird-ui
   ];
 
   services.xserver = {
     enable = true;
-    xkb.layout = "us";
-    xkb.variant = "colemak";
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    layout = "us";
+    xkbVariant = "intl";
+    desktopManager.xterm.enable = true;
+    displayManager.defaultSession = "none+qtile";
+    windowManager.qtile.enable = true;
   };
 
-  hardware.pulseaudio.enable = false;
+  services.netbird.enable = true; # for netbird service & CLI
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -67,9 +72,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "22.11";
 }

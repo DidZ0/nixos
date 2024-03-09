@@ -21,6 +21,10 @@
         specialArgs = { inherit inputs; };
         modules = [ ./hosts/worklap/configuration.nix ];
       };
+      nixlap = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [ ./hosts/nixlap/configuration.nix ];
+      };
       lab = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [ ./hosts/lab/configuration.nix ];
