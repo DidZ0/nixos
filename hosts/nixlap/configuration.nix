@@ -33,7 +33,6 @@
 
   users.users.bomal = {
     isNormalUser = true;
-    shell = pkgs.fish;
     description = "Yan IMENSAR";
     extraGroups = [ "networkmanager" "wheel" "video" ];
     packages = with pkgs; [];
