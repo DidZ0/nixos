@@ -1,5 +1,9 @@
 { inputs, lib, config, pkgs, ... }: {
 
+  imports = [
+    ./wezterm
+  ];
+
   nixpkgs = {
     overlays = [];
     config = {
@@ -9,6 +13,11 @@
   };
 
   programs.home-manager.enable = true;
+  programs.kitty = {
+    enable = true;
+    settings = { confirm_os_window_close = -1; };
+  };
+
   home.username = "bomal";
   home.homeDirectory = "/home/bomal";
 
@@ -44,8 +53,8 @@
     nixoswitch = "sudo nixos-rebuild switch --flake $HOME/.config/nixos";
   };
   
-  xdg.configFile."hypr/hyprland.conf".source = "${config.home.homeDirectory}/nixos/users/bomal/hypr/hyprland.conf";
-  xdg.configFile."hypr/hyprpaper.conf".source = "${config.home.homeDirectory}/nixos/users/bomal/hypr/hyprpaper.conf";
+  xdg.configFile."hypr/hyprland.conf".source = ./hypr/hyprland.conf;
+  xdg.configFile."hypr/hyprpaper.conf".source = ./hypr/hyprpaper.conf;
 
   systemd.user.startServices = "sd-switch";
 
