@@ -16,6 +16,7 @@
     signal-desktop
     flameshot
     neovim
+    hyprpaper
   ];
 
   home.sessionVariables = {
@@ -32,13 +33,7 @@
   programs.git = {
     enable = true;
     userName  = "Yan IMENSAR";
-    userEmail = "yimensar@4cad.fr";
-  };
-  programs.vscode= {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-    	github.copilot
-    ];
+    userEmail = "sub@yan-imensar.fr";
   };
 
   programs.direnv.enable = true;
@@ -50,5 +45,5 @@
   
   systemd.user.startServices = "sd-switch";
 
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.11";
 }

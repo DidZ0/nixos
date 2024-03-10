@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports = [ ./hardware-configuration.nix ];
@@ -41,6 +41,8 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     firefox
+    kitty
+    waybar
   ];
 
   fonts.packages = with pkgs; [
@@ -57,6 +59,10 @@
     xkb.variant = "colemak";
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+  };
+
+  programs.hyprland = {
+    enable = true;
   };
 
   hardware.pulseaudio.enable = false;
