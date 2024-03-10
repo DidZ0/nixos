@@ -2,6 +2,7 @@
 
   imports = [
     ./wezterm
+    ./programs/foot.nix
   ];
 
   nixpkgs = {
