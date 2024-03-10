@@ -43,7 +43,8 @@
     nixoswitch = "sudo nixos-rebuild switch --flake $HOME/.config/nixos";
   };
   
-  xdg.configFile."hypr/hyprpaper/hyprpaper.conf".source = ./hypr/hyprpaper/hyprpaper.conf;
+  xdg.configFile."hypr/hyprland.conf".source = ./hypr/hyprland.conf;
+  xdg.configFile."hypr/hyprpaper.conf".source = ./hypr/hyprpaper.conf;
 
   systemd.user.startServices = "sd-switch";
 
