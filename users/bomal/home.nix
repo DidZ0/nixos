@@ -17,6 +17,7 @@
     flameshot
     neovim
     hyprpaper
+    wofi
   ];
 
   home.sessionVariables = {
@@ -43,8 +44,8 @@
     nixoswitch = "sudo nixos-rebuild switch --flake $HOME/.config/nixos";
   };
   
-  xdg.configFile."hypr/hyprland.conf".source = ./hypr/hyprland.conf;
-  xdg.configFile."hypr/hyprpaper.conf".source = ./hypr/hyprpaper.conf;
+  xdg.configFile."hypr/hyprland.conf".source = "${config.home.homeDirectory}/nixos/users/bomal/hypr/hyprland.conf";
+  xdg.configFile."hypr/hyprpaper.conf".source = "${config.home.homeDirectory}/nixos/users/bomal/hypr/hyprpaper.conf";
 
   systemd.user.startServices = "sd-switch";
 
