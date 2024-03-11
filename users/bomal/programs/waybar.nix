@@ -69,7 +69,7 @@
         padding-right: 6px;
         color: rgb(201, 203, 255);
       }
-      #window, #clock, #memory,#cpu, #pulseaudio, #network {
+      #window, #backlight, #clock, #memory,#battery, #cpu, #pulseaudio, #network {
         padding-left: 10px;
         padding-right: 10px;
       }
@@ -85,7 +85,13 @@
       #pulseaudio {
         color: rgb(245, 224, 220);
       }
+      #battery{
+        color: rgb(181, 133, 71);
+      }
       #network {
+        color: #ABE9B3;
+      }
+      #backlight{
         color: #ABE9B3;
       }
 
@@ -109,10 +115,17 @@
       modules-left =
         [ "hyprland/workspaces" "hyprland/window" ];
       modules-center = [ "clock" ];
-      modules-right = [ "pulseaudio" "memory" "cpu" "network" "tray" ];
+      modules-right = [ "backlight" "pulseaudio" "memory" "cpu" "battery" "network" "tray" ];
       "hyprland/workspaces" = {
         "format" = "{name}";
         "on-click" = "activate";
+      };
+      "backlight"= {
+      	"on-scroll-up"="light -A 5";
+      	"on-scroll-down"="light -U 5";
+        "device"= "intel_backlight";
+        "format"= "{icon} {percent}%";
+        "format-icons"= ["" ""];
       };
       "pulseaudio" = {
         "scroll-step" = 1;
@@ -123,28 +136,43 @@
         "tooltip" = false;
       };
       "clock" = {
-        "interval" = 1;
+        "interval" = 5;
         "format" = "{:%I:%M}";
       };
       "memory" = {
         "interval" = 1;
         "format" = "󰍛 {percentage}%";
         "states" = { "warning" = 85; };
+        "on-click" = "foot -e htop";
       };
       "cpu" = {
         "interval" = 1;
         "format" = "󰻠 {usage}%";
+        "on-click" = "foot -e htop";
       };
+      "battery" = {
+        "interval" = 60;
+	"states" = {
+	  "good" = 95;
+	  "warning" = 30;
+	  "critical" = 5;
+	};
+	"format-charging" = " {capacity}%";
+	"format-plugged" = " {capacity}%";
+	"format" = "{icon} {capacity}%";
+    	"format-icons"= ["" "" "" "" ""];
+        };
       "network" = {
         "format-disconnected" = "󰯡 Disconnected";
         "format-ethernet" = "󰀂 {ifname}";
         "format-linked" = "󰖪 {essid} (No IP)";
         "format-wifi" = "󰖩 {essid}";
-        "interval" = 1;
+        "interval" = 4;
         "tooltip" = false;
+        "on-click" = "foot -e nmtui";
       };
       "tray" = {
-        "icon-size" = 15;
+        "icon-size" = 20;
         "spacing" = 5;
       };
     }];

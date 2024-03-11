@@ -24,9 +24,12 @@
     signal-desktop
     neovim
     hyprpaper
+    hyprlock
+    hypridle
     wofi
     pulsemixer
     btop
+    htop
     neofetch
   ];
 
@@ -61,6 +64,8 @@
   
   xdg.configFile."hypr/hyprland.conf".source = ./hypr/hyprland.conf;
   xdg.configFile."hypr/hyprpaper.conf".source = ./hypr/hyprpaper.conf;
+  xdg.configFile."hypr/hyprlock.conf".source = ./hypr/hyprlock.conf;
+  xdg.configFile."hypr/hypridle.conf".source = ./hypr/hypridle.conf;
 
   systemd.user.startServices = "sd-switch";
 

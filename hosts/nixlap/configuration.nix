@@ -9,6 +9,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   programs.dconf.enable = true;
+  programs.light.enable = true;
 
   networking.hostName = "nixlap";
   networking.networkmanager.enable = true;
