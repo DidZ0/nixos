@@ -7,8 +7,8 @@
     };
     style = ''
       * {
-        font-family: "JetBrainsMono Nerd Font";
-        font-size: 14pt;
+        font-family: "FiraCode Nerd Font";
+        font-size: 12pt;
         font-weight: bold;
         border-radius: 0px;
         transition-property: background-color;
@@ -34,7 +34,7 @@
         /* margin-left: 5px;
         margin-right: 5px;
         margin-top: 5px; */
-        background-color: rgb(30, 30, 46);
+        background-color: rgb(0, 0, 0);
       }
       #workspaces {
         padding-left: 0px;
@@ -107,14 +107,9 @@
       "layer" = "top";
       "position" = "top";
       modules-left =
-        [ "custom/launcher" "hyprland/workspaces" "hyprland/window" ];
+        [ "hyprland/workspaces" "hyprland/window" ];
       modules-center = [ "clock" ];
       modules-right = [ "pulseaudio" "memory" "cpu" "network" "tray" ];
-      "custom/launcher" = {
-        "format" = " ";
-        "on-click" = "pkill rofi || ~/.config/rofi/launcher.sh";
-        "tooltip" = false;
-      };
       "hyprland/workspaces" = {
         "format" = "{name}";
         "on-click" = "activate";
@@ -124,16 +119,12 @@
         "format" = "{icon} {volume}%";
         "format-muted" = "󰖁 Muted";
         "format-icons" = { "default" = [ "" "" "" ]; };
-        "on-click" = "pamixer -t";
+        "on-click" = "foot -e pulsemixer";
         "tooltip" = false;
       };
       "clock" = {
         "interval" = 1;
-        "format" = "{:%I:%M %p  %A %b %d}";
-        "tooltip" = true;
-        "tooltip-format" = ''
-          {=%A; %d %B %Y}
-          <tt>{calendar}</tt>'';
+        "format" = "{:%I:%M}";
       };
       "memory" = {
         "interval" = 1;

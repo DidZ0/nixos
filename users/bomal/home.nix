@@ -1,8 +1,9 @@
 { inputs, lib, config, pkgs, ... }: {
 
   imports = [
-    ./wezterm
     ./programs/foot.nix
+    ./programs/waybar.nix
+    ./programs/git.nix
   ];
 
   nixpkgs = {
@@ -14,20 +15,16 @@
   };
 
   programs.home-manager.enable = true;
-  programs.kitty = {
-    enable = true;
-    settings = { confirm_os_window_close = -1; };
-  };
 
   home.username = "bomal";
   home.homeDirectory = "/home/bomal";
 
   home.packages = with pkgs; [
     signal-desktop
-    flameshot
     neovim
     hyprpaper
     wofi
+    pulsemixer
   ];
 
   home.sessionVariables = {
@@ -40,12 +37,6 @@
     BROWSER = "firefox";
   };
 
-
-  programs.git = {
-    enable = true;
-    userName  = "Yan IMENSAR";
-    userEmail = "sub@yan-imensar.fr";
-  };
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
