@@ -4,6 +4,7 @@
     ./programs/foot.nix
     ./programs/waybar.nix
     ./programs/git.nix
+    ./programs/taskwarrior.nix
   ];
 
   nixpkgs = {
@@ -39,7 +40,18 @@
     BROWSER = "firefox";
   };
 
+  home.sessionPath = [
+    "$HOME/.npm-global/bin"
+  ];
 
+  programs.bash = {
+    enable = true;
+    initExtra = ''
+	. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+    '';
+  };
+
+  programs.vscode.enable = true;
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.bash.shellAliases = {
