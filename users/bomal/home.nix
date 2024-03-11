@@ -25,6 +25,8 @@
     hyprpaper
     wofi
     pulsemixer
+    btop
+    neofetch
   ];
 
   home.sessionVariables = {

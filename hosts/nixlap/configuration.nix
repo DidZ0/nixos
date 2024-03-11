@@ -41,7 +41,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     firefox
-    waybar
+    nodejs
   ];
 
   fonts.packages = with pkgs; [
