@@ -25,6 +25,10 @@
         specialArgs = { inherit inputs; };
         modules = [ ./hosts/lab/configuration.nix ];
       };
+      xps = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [ ./hosts/xps/configuration.nix ];
+      };
    };
   };
 }

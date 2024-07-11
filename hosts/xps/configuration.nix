@@ -11,7 +11,7 @@
   programs.dconf.enable = true;
   programs.light.enable = true;
 
-  networking.hostName = "nixlap";
+  networking.hostName = "xps";
   networking.networkmanager.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
@@ -29,8 +29,6 @@
     LC_TELEPHONE = "fr_FR.UTF-8";
     LC_TIME = "fr_FR.UTF-8";
   };
-
-  services.printing.enable = true;
 
   users.users.bomal = {
     isNormalUser = true;
