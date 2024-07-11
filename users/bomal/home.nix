@@ -22,6 +22,7 @@
 
   home.packages = with pkgs; [
     signal-desktop
+    teams-for-linux
     neovim
     hyprpaper
     hyprlock
@@ -31,6 +32,7 @@
     btop
     htop
     neofetch
+    vscode-fhs
   ];
 
   home.sessionVariables = {
@@ -54,7 +56,6 @@
     '';
   };
 
-  programs.vscode.enable = true;
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.bash.shellAliases = {

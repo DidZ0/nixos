@@ -72,6 +72,9 @@
     pulse.enable = true;
   };
 
+  services.thermald.enable = true;
+  powerManagement.powertop.enable = true;
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
