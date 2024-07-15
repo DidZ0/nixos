@@ -5,6 +5,7 @@
     ./programs/waybar.nix
     ./programs/git.nix
     ./programs/taskwarrior.nix
+    ./programs/nvim.nix
   ];
 
   nixpkgs = {
@@ -23,16 +24,17 @@
   home.packages = with pkgs; [
     signal-desktop
     teams-for-linux
-    neovim
     hyprpaper
     hyprlock
     hypridle
     wofi
+    nnn
     pulsemixer
     btop
     htop
     neofetch
     vscode-fhs
+    chromium
   ];
 
   home.sessionVariables = {
@@ -42,7 +44,7 @@
     DIFFPROG = "nvim -d";
     MANPAGER = "nvim +Man!";
     MANWIDTH = "999";
-    BROWSER = "firefox";
+    BROWSER = "chromium";
   };
 
   home.sessionPath = [
@@ -70,5 +72,5 @@
 
   systemd.user.startServices = "sd-switch";
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 }
