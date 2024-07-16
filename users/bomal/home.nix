@@ -36,6 +36,7 @@
     vscode-fhs
     chromium
     ripgrep
+    lua-language-server
   ];
 
   home.sessionVariables = {
