@@ -7,7 +7,7 @@
     	term = "foot";
 	font = "FiraCode Nerd Font:size=12";
 	dpi-aware = "yes";  
-	pad = "20x0";
+	pad = "0x0";
     };  
 
     mouse = {

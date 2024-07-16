@@ -5,7 +5,6 @@
     ./programs/waybar.nix
     ./programs/git.nix
     ./programs/taskwarrior.nix
-    ./programs/nvim.nix
   ];
 
   nixpkgs = {
@@ -33,8 +32,10 @@
     btop
     htop
     neofetch
+    neovim
     vscode-fhs
     chromium
+    ripgrep
   ];
 
   home.sessionVariables = {

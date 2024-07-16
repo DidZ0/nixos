@@ -7,4 +7,3 @@
     userEmail = "sub@yan-imensar.fr";
   };
 }
-

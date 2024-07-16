@@ -40,6 +40,14 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     nodejs
+    gnumake
+    gcc
+    unzip
+    zip
+    wl-clipboard
+    lua
+    lazygit
+    fd
   ];
 
   fonts.packages = with pkgs; [

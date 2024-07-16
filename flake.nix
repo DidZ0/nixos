@@ -12,7 +12,9 @@
       "bomal" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs; };
-        modules = [ ./users/bomal/home.nix ];
+        modules = [
+          ./users/bomal/home.nix
+        ];
       };
     };
 
